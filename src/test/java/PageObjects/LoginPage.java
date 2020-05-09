@@ -26,9 +26,9 @@ public class LoginPage {
     @CacheLookup
     WebElement SubmitPassword;
 
-  public void loginWithPassWord(){
+  public void loginWithPassWord(String pass){
       passwordfield.click();
-      passwordTextField.sendKeys("idgad");
+      passwordTextField.sendKeys(pass);
       SubmitPassword.click();
   }
 
