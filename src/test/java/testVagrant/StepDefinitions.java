@@ -1,3 +1,6 @@
+package testVagrant;
+
+import PageObjects.LoginPage;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -9,9 +12,11 @@ import java.util.Properties;
 
 public class StepDefinitions {
 public WebDriver driver;
+public LoginPage loginPage;
 
     private Properties properties;
     Utils util = new Utils();
+
 
     @Before(order = 1)
     public void setProperties() {
@@ -26,6 +31,7 @@ public WebDriver driver;
             driver = new ChromeDriver();
             driver.manage().window().maximize();
             driver.get(properties.getProperty("url"));
+            Thread.sleep(8000);
 
         }
 
@@ -33,7 +39,7 @@ public WebDriver driver;
 
     @Then("user enters password")
     public void enter_password(){
-
+       loginPage.loginWithPassWord(properties.getProperty("password"));
     }
 
     @Then("^quite the browser$")
