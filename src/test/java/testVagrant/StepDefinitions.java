@@ -10,15 +10,20 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import static org.junit.Assert.*;
 
 public class StepDefinitions {
-   public  WebDriver driver;
+public WebDriver driver;
 
     @Given("^Launch (.*?) browser$")
-    public void launch_desired_browser(String browser){
+    public void launch_desired_browser(String browser)  {
         if(browser.equalsIgnoreCase("Chrome")){
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
+            driver.manage().window().maximize();
         }
 
+    }
+    @Then("^quite the browser$")
+    public void quite_browser(){
+        driver.quit();
     }
 
 }
