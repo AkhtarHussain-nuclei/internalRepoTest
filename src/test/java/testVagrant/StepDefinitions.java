@@ -21,6 +21,7 @@ public WebDriver driver;
         }
 
     }
+
     @Then("^quite the browser$")
     public void quite_browser(){
         driver.quit();
