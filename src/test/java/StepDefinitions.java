@@ -1,19 +1,15 @@
-package testVagrant;
-
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.Properties;
 
-import static org.junit.Assert.*;
-
 public class StepDefinitions {
 public WebDriver driver;
+
     private Properties properties;
     Utils util = new Utils();
 
@@ -30,7 +26,13 @@ public WebDriver driver;
             driver = new ChromeDriver();
             driver.manage().window().maximize();
             driver.get(properties.getProperty("url"));
+
         }
+
+    }
+
+    @Then("user enters password")
+    public void enter_password(){
 
     }
 
